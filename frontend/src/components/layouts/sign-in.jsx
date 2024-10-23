@@ -63,8 +63,8 @@ const SignIn = () => {
       dispatch(signUserSuccess(response.user));
       navigate("/");
     } catch (error) {
-      dispatch(signUserFailure(error?.response?.data));
-      toast.error(error?.response?.data?.message);
+      dispatch(signUserFailure(error?.response?.data || error?.message));
+      toast.error(error?.response?.data?.message || error?.message);
     }
   };
 

@@ -1,14 +1,29 @@
 import React, { useRef, useEffect } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
+import { Button } from "../ui/button";
+import { CiTextAlignLeft } from "react-icons/ci";
+import { HiOutlineChatAlt } from "react-icons/hi";
+import { IoSunnyOutline } from "react-icons/io5";
+import { RxMoon } from "react-icons/rx";
+import { setMode, setSidebarOpen } from "@/slice/mode-slice";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaTelegram,
+  FaYoutube,
+} from "react-icons/fa";
+import SidebarTablet from "./sidebartablet";
 
 const Layout = ({ children }) => {
-  const { mode } = useSelector((state) => state.mode);
+  const { mode, sidebarOpen } = useSelector((state) => state.mode);
   const ref = useRef(null);
   const location = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     ref.current.complete();
@@ -24,12 +39,78 @@ const Layout = ({ children }) => {
         <LoadingBar color="blue" ref={ref} />
         <Navbar />
 
+        <div
+          className={`border-t border-gray-700 ${
+            mode ? "bg-light" : "bg-slate"
+          } flex justify-between items-center px-3`}
+        >
+          <div className="md:hidden flex p-2">
+            <Button
+              className={`text-[20px] p-2 pt-0 pb-0 rounded-[2px] h-[30px] ${
+                mode
+                  ? "text-gray-800 bg-light hover:bg-gray-200"
+                  : "text-white hover:bg-gray-600"
+              }`}
+              onClick={() => dispatch(setSidebarOpen(!sidebarOpen))}
+            >
+              <CiTextAlignLeft />
+            </Button>
+            <Button
+              onClick={() => dispatch(setMode(!mode))}
+              className={`text-[20px] p-2 pt-0 pb-0 rounded-[2px] h-[30px] ${
+                mode
+                  ? "text-gray-800 bg-light hover:bg-gray-200"
+                  : "text-white hover:bg-gray-600"
+              }`}
+            >
+              {mode ? <RxMoon /> : <IoSunnyOutline />}
+            </Button>
+            <Button
+              className={`text-[20px] p-2 pt-0 pb-0 rounded-[2px] h-[30px] ${
+                mode
+                  ? "text-gray-800 bg-light hover:bg-gray-200"
+                  : "text-white hover:bg-gray-600"
+              }`}
+            >
+              <HiOutlineChatAlt />
+            </Button>
+          </div>
+          <div className="md:hidden flex gap-0 justify-center items-center flex-wrap">
+            <FaTelegram
+              className={`p-2 w-[33px] cursor-pointer transition-all h-[30px] rounded  hover:bg-gray-700 hover:text-white ${
+                mode ? "text-gray-900" : "text-white"
+              }`}
+            />
+            <FaInstagram
+              className={`p-2 w-[33px] cursor-pointer transition-all h-[30px] rounded  hover:bg-gray-700 hover:text-white ${
+                mode ? "text-gray-900" : "text-white"
+              }`}
+            />
+            <FaYoutube
+              className={`p-2 w-[33px] cursor-pointer transition-all h-[30px] rounded  hover:bg-gray-700 hover:text-white ${
+                mode ? "text-gray-900" : "text-white"
+              }`}
+            />
+            <FaLinkedin
+              className={`p-2 w-[33px] cursor-pointer transition-all h-[30px] rounded  hover:bg-gray-700 hover:text-white ${
+                mode ? "text-gray-900" : "text-white"
+              }`}
+            />
+            <FaGithub
+              className={`p-2 w-[33px] cursor-pointer transition-all h-[30px] rounded  hover:bg-gray-700 hover:text-white ${
+                mode ? "text-gray-900" : "text-white"
+              }`}
+            />
+          </div>
+        </div>
+
         <div className="relative border-t-[1px] border-gray-700">
           <div
             className={`fixed w-[288px] top-[80px] left-0 ${
               mode ? "bg-light" : "bg-slate"
             } h-screen z-[-1]`}
           >
+            <SidebarTablet loadingBarRef={ref} />
             <Sidebar loadingBarRef={ref} />
           </div>
           <div

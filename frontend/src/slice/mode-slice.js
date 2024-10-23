@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   mode: false,
+  sidebarOpen: false,
 };
 
 const modeSlice = createSlice({
@@ -11,8 +12,11 @@ const modeSlice = createSlice({
     setMode: (state) => {
       state.mode = !state.mode;
     },
+    setSidebarOpen: (state) => {
+      state.sidebarOpen = !state.sidebarOpen;
+    },
   },
 });
 
-export const { setMode } = modeSlice.actions;
+export const { setMode, setSidebarOpen } = modeSlice.actions;
 export const modeReducer = modeSlice.reducer;

@@ -18,7 +18,7 @@ const Sidebar = () => {
   const { mode } = useSelector((state) => state.mode);
 
   return (
-    <div className="md:flex hidden flex-col justify-between px-4 py-6 h-[90vh] font-montserrat">
+    <div className="flex flex-col justify-between px-4 py-6 h-[90vh] font-montserrat">
       <ul
         className={`${
           mode ? "text-black" : "text-white"
@@ -125,7 +125,7 @@ const Sidebar = () => {
       </ul>
       <div>
         <hr className="my-2 border-gray-800" />
-        <div className="flex gap-2 justify-center items-center pt-3">
+        <div className="md:flex hidden gap-2 justify-center items-center pt-3">
           <FaTelegram
             className={`p-2 w-[35px] cursor-pointer transition-all h-[35px] rounded text-[20px] hover:bg-gray-700 hover:text-white ${
               mode ? "text-gray-900" : "text-white"

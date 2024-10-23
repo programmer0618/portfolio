@@ -12,9 +12,10 @@ const Profile = () => {
   const { mode } = useSelector((state) => state.mode);
   const { user } = useSelector((state) => state.userData);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <Layout>
-      {user && (
+      {user ? (
         <>
           <div className="flex gap-4 justify-between">
             <div className="flex items-center gap-4 justify-start">
@@ -56,6 +57,19 @@ const Profile = () => {
           </div>
           {isOpen && <EditProfile setIsOpen={setIsOpen} mode={mode} />}
         </>
+      ) : (
+        <div>
+          <h1 className="sm:text-3xl text-xl font-bold font-spaceGrotesk">
+            Siz hozirda ro'yxatdan o'tmagansiz!
+            <br />
+            <span
+              className="text-[18px] text-blue-500 hover:underline cursor-pointer"
+              onClick={() => navigate("/sign-in")}
+            >
+              Tizimga kirish
+            </span>
+          </h1>
+        </div>
       )}
     </Layout>
   );

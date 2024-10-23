@@ -43,7 +43,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="w-full container mx-auto h-[80px] flex items-center justify-between px-[100px] py-[16px]">
+    <div className="w-full container mx-auto h-[80px] flex items-center justify-between px-3 xl:px-[100px] py-[16px]">
       <Link to={"/"}>
         <h1
           className="text-[40px] bg-[url('/logo.jfif')] bg-no-repeat bg-clip-text text-transparent bg-cover 
@@ -53,34 +53,36 @@ const Navbar = () => {
         </h1>
       </Link>
       <div className="flex items-center justify-between gap-1 group">
-        <Button
-          className={`text-[20px] ${
-            mode
-              ? "text-gray-800 bg-light hover:bg-gray-200"
-              : "text-white hover:bg-gray-600"
-          }`}
-        >
-          <FaTelegram />
-        </Button>
-        <Button
-          onClick={() => dispatch(setMode(!mode))}
-          className={`text-[20px] ${
-            mode
-              ? "text-gray-800 bg-light hover:bg-gray-200"
-              : "text-white hover:bg-gray-600"
-          }`}
-        >
-          {mode ? <IoSunnyOutline /> : <RxMoon />}
-        </Button>
-        <Button
-          className={`text-[20px] ${
-            mode
-              ? "text-gray-800 bg-light hover:bg-gray-200"
-              : "text-white hover:bg-gray-600"
-          }`}
-        >
-          <HiOutlineChatAlt />
-        </Button>
+        <div className="md:flex hidden">
+          <Button
+            className={`text-[20px] ${
+              mode
+                ? "text-gray-800 bg-light hover:bg-gray-200"
+                : "text-white hover:bg-gray-600"
+            }`}
+          >
+            <FaTelegram />
+          </Button>
+          <Button
+            onClick={() => dispatch(setMode(!mode))}
+            className={`text-[20px] ${
+              mode
+                ? "text-gray-800 bg-light hover:bg-gray-200"
+                : "text-white hover:bg-gray-600"
+            }`}
+          >
+            {mode ? <RxMoon /> : <IoSunnyOutline className="text-[20px]" />}
+          </Button>
+          <Button
+            className={`text-[20px] ${
+              mode
+                ? "text-gray-800 bg-light hover:bg-gray-200"
+                : "text-white hover:bg-gray-600"
+            }`}
+          >
+            <HiOutlineChatAlt />
+          </Button>
+        </div>
         {isLoading ? (
           <Button
             onClick={() => navigate("/sign-in")}
