@@ -22,7 +22,7 @@ const SignLayout = ({ children }) => {
             } h-[calc(100vh-80px)] overflow-y-scroll`}
           >
             <div
-              className={`container mx-auto py-10 px-32 ${
+              className={`container mx-auto py-10 px-1 ${
                 mode ? "text-gray-800" : "text-white"
               }`}
             >

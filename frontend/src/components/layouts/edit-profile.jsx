@@ -78,119 +78,121 @@ const EditProfile = ({ setIsOpen, mode }) => {
       className="fixed top-0 left-0 flex justify-end w-full h-screen overflow-y-scroll bg-[rgba(0,0,0,0.8)] z-0"
       onClick={closeModal}
     >
-      <form
-        className={`w-1/2 z-10 ${
-          mode ? "bg-white" : "bg-darkBlue"
-        } animate-right relative p-6`}
-        onClick={(e) => e.stopPropagation()}
-        onSubmit={updateHandler}
-      >
-        {isLoading ? (
-          <div className="w-full h-full flex items-center justify-center">
-            <Loader2 className="w-10 h-10 animate-spin" />
-          </div>
-        ) : (
-          <>
-            <h1 className="text-xl font-semibold font-montserrat">
-              Profilni tahrirlash
-            </h1>
-            <div className="flex flex-col my-4 gap-2">
-              <label htmlFor="firstname">Emailingiz</label>
-              <input
-                type="text"
-                placeholder="Emailingiz"
-                className={`h-[40px] px-3 ${
-                  mode ? "bg-gray-200" : "bg-gray-800"
-                } rounded-sm focus:outline-none`}
-                value={updateData.email}
-                onChange={(e) =>
-                  setUpdateData({ ...updateData, email: e.target.value })
-                }
-              />
+      <div className="sm:w-1/2 xs:w-[80%] w-full">
+        <form
+          className={`w-full z-10 ${
+            mode ? "bg-white" : "bg-darkBlue"
+          } animate-right relative p-6`}
+          onClick={(e) => e.stopPropagation()}
+          onSubmit={updateHandler}
+        >
+          {isLoading ? (
+            <div className="w-full h-full flex items-center justify-center">
+              <Loader2 className="w-10 h-10 animate-spin" />
             </div>
-            <div className="flex flex-col my-4 gap-2">
-              <label htmlFor="firstname">Ismingiz</label>
-              <input
-                type="text"
-                placeholder="Ismingiz"
-                className={`h-[40px] px-3 ${
-                  mode ? "bg-gray-200" : "bg-gray-800"
-                } rounded-sm focus:outline-none`}
-                value={updateData.firstname}
-                onChange={(e) =>
-                  setUpdateData({ ...updateData, firstname: e.target.value })
-                }
-              />
-            </div>
-            <div className="flex flex-col my-4 gap-2">
-              <label htmlFor="firstname">Familiyangiz</label>
-              <input
-                type="text"
-                placeholder="Familiyangiz"
-                className={`h-[40px] px-3 ${
-                  mode ? "bg-gray-200" : "bg-gray-800"
-                } rounded-sm focus:outline-none`}
-                value={updateData.lastname}
-                onChange={(e) =>
-                  setUpdateData({ ...updateData, lastname: e.target.value })
-                }
-              />
-            </div>
-            <div className="flex flex-col my-4 gap-2">
-              <label htmlFor="firstname">Telefon raqamingiz</label>
-              <input
-                type="text"
-                placeholder="Telefon raqamingiz?"
-                className={`h-[40px] px-3 ${
-                  mode ? "bg-gray-200" : "bg-gray-800"
-                } rounded-sm focus:outline-none`}
-                value={updateData.phone}
-                onChange={(e) =>
-                  setUpdateData({ ...updateData, phone: e.target.value })
-                }
-              />
-            </div>
-            <div className="flex flex-col my-4 gap-2">
-              <label htmlFor="file-upload" className="cursor-pointer">
-                Profilga rasm yuklash
-              </label>
-              <input
-                id="file-upload"
-                type="file"
-                onChange={onFileChange}
-                className="hidden"
-              />
-              <label
-                htmlFor="file-upload"
-                className={`h-[40px] px-5 flex items-center justify-start gap-4 cursor-pointer ${
-                  mode ? "bg-gray-200" : "bg-gray-800"
-                } rounded-sm text-white focus:outline-none hover:bg-gray-700`}
-              >
-                <LuUpload className="text-xl" />{" "}
-                <span>Profilga rasm yuklash</span>
-              </label>
-            </div>
+          ) : (
+            <>
+              <h1 className="text-xl font-semibold font-montserrat">
+                Profilni tahrirlash
+              </h1>
+              <div className="flex flex-col my-4 gap-2">
+                <label htmlFor="firstname">Emailingiz</label>
+                <input
+                  type="text"
+                  placeholder="Emailingiz"
+                  className={`h-[40px] px-3 ${
+                    mode ? "bg-gray-200" : "bg-gray-800"
+                  } rounded-sm focus:outline-none`}
+                  value={updateData.email}
+                  onChange={(e) =>
+                    setUpdateData({ ...updateData, email: e.target.value })
+                  }
+                />
+              </div>
+              <div className="flex flex-col my-4 gap-2">
+                <label htmlFor="firstname">Ismingiz</label>
+                <input
+                  type="text"
+                  placeholder="Ismingiz"
+                  className={`h-[40px] px-3 ${
+                    mode ? "bg-gray-200" : "bg-gray-800"
+                  } rounded-sm focus:outline-none`}
+                  value={updateData.firstname}
+                  onChange={(e) =>
+                    setUpdateData({ ...updateData, firstname: e.target.value })
+                  }
+                />
+              </div>
+              <div className="flex flex-col my-4 gap-2">
+                <label htmlFor="firstname">Familiyangiz</label>
+                <input
+                  type="text"
+                  placeholder="Familiyangiz"
+                  className={`h-[40px] px-3 ${
+                    mode ? "bg-gray-200" : "bg-gray-800"
+                  } rounded-sm focus:outline-none`}
+                  value={updateData.lastname}
+                  onChange={(e) =>
+                    setUpdateData({ ...updateData, lastname: e.target.value })
+                  }
+                />
+              </div>
+              <div className="flex flex-col my-4 gap-2">
+                <label htmlFor="firstname">Telefon raqamingiz</label>
+                <input
+                  type="text"
+                  placeholder="Telefon raqamingiz?"
+                  className={`h-[40px] px-3 ${
+                    mode ? "bg-gray-200" : "bg-gray-800"
+                  } rounded-sm focus:outline-none`}
+                  value={updateData.phone}
+                  onChange={(e) =>
+                    setUpdateData({ ...updateData, phone: e.target.value })
+                  }
+                />
+              </div>
+              <div className="flex flex-col my-4 gap-2">
+                <label htmlFor="file-upload" className="cursor-pointer">
+                  Profilga rasm yuklash
+                </label>
+                <input
+                  id="file-upload"
+                  type="file"
+                  onChange={onFileChange}
+                  className="hidden"
+                />
+                <label
+                  htmlFor="file-upload"
+                  className={`h-[40px] px-5 flex items-center justify-start gap-4 cursor-pointer ${
+                    mode ? "bg-gray-200" : "bg-gray-800"
+                  } rounded-sm text-white focus:outline-none hover:bg-gray-700`}
+                >
+                  <LuUpload className="text-xl" />{" "}
+                  <span>Profilga rasm yuklash</span>
+                </label>
+              </div>
 
-            <div className="flex flex-col my-4 gap-2">
-              <label htmlFor="firstname">Bio</label>
-              <textarea
-                type="text"
-                placeholder="BIO"
-                className={`px-3 ${
-                  mode ? "bg-gray-200" : "bg-gray-800"
-                } rounded-sm focus:outline-none min-h-[130px] py-3`}
-                value={updateData.bio}
-                onChange={(e) =>
-                  setUpdateData({ ...updateData, bio: e.target.value })
-                }
-              ></textarea>
-            </div>
-            <Button className="bg-green-500 hover:bg-blue-600" type="submit">
-              Saqlash
-            </Button>
-          </>
-        )}
-      </form>
+              <div className="flex flex-col my-4 gap-2">
+                <label htmlFor="firstname">Bio</label>
+                <textarea
+                  type="text"
+                  placeholder="BIO"
+                  className={`px-3 ${
+                    mode ? "bg-gray-200" : "bg-gray-800"
+                  } rounded-sm focus:outline-none min-h-[130px] py-3`}
+                  value={updateData.bio}
+                  onChange={(e) =>
+                    setUpdateData({ ...updateData, bio: e.target.value })
+                  }
+                ></textarea>
+              </div>
+              <Button className="bg-green-500 hover:bg-blue-600" type="submit">
+                Saqlash
+              </Button>
+            </>
+          )}
+        </form>
+      </div>
     </div>
   );
 };

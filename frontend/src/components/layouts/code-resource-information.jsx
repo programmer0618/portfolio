@@ -36,7 +36,7 @@ const CodeResourceInformation = ({ mode }) => {
       <div
         className={`${
           mode ? "bg-white" : "bg-darkBlue"
-        } font-montserrat grid grid-cols-3 gap-2`}
+        } font-montserrat grid lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 xs:grid-cols-2 gap-2`}
       >
         {data.map((item) => (
           <Card

@@ -45,7 +45,7 @@ export function ComboboxDemo() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={`w-[200px] border-none rounded-none h-[35px] ${
+          className={`w-full md:w-[200px] border-none rounded-none h-[35px] ${
             mode
               ? "bg-gray-200 hover:bg-gray-100 text-gray-500 hover:text-gray-800"
               : "bg-gray-800 hover:bg-gray-800 text-gray-300 hover:text-white"
@@ -57,7 +57,7 @@ export function ComboboxDemo() {
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0 border-none">
+      <PopoverContent className="w-full p-0 border-none">
         <Command className="border-transparent bg-transparent rounded-none">
           <CommandList className="border-transparent">
             <CommandGroup

@@ -37,7 +37,7 @@ const ProjectsInformation = ({ mode }) => {
   return (
     <div className={`${mode ? "bg-white" : "bg-darkBlue"} font-montserrat`}>
       <PointerRoute text={"Loyihalar"} />
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-4">
         {data.map((item) => (
           <Card
             className={`${
@@ -50,7 +50,7 @@ const ProjectsInformation = ({ mode }) => {
             <img
               src={item.img}
               alt={item.title}
-              className="h-[180px] w-[330px]"
+              className="h-[180px] w-full md:object-cover"
             />
             <CardTitle
               className={`rounded-none p-3 tracking-[.1px] text-[18px] font-semibold`}

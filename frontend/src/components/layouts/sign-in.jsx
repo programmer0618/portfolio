@@ -71,8 +71,8 @@ const SignIn = () => {
   return (
     <SignLayout>
       <form
-        className={`lg:w-1/3 md:w-[70%] w-full pt-8 px-8 rounded-lg border mx-auto font-spaceGrotesk shadow-md ${
-          mode ? "bg-light" : "bg-zinc-800"
+        className={`w-full xs:w-[400px] border border-gray-600 pt-8 px-8 rounded-lg mx-auto font-spaceGrotesk ${
+          mode ? "bg-light" : "bg-zinc-800 login-animation"
         }`}
         onSubmit={loginHandler}
       >
@@ -91,7 +91,7 @@ const SignIn = () => {
                 : "text-gray-400 bg-transparent border-gray-500 hover:bg-zinc-700"
             }`}
           >
-            <FaGithub className="w-[16px] h-[16px]" />
+            <FaGithub className="text-[16px] min-w-[16px]" />
             <span>GitHub</span>
           </Button>
           <Button

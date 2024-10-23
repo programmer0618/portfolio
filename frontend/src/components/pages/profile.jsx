@@ -17,8 +17,8 @@ const Profile = () => {
     <Layout>
       {user ? (
         <>
-          <div className="flex gap-4 justify-between">
-            <div className="flex items-center gap-4 justify-start">
+          <div className="flex gap-4 justify-between md2:items-center items-start lg:items-start xl:items-center flex-col md2:flex-row lg:flex-col xl:flex-row">
+            <div className="flex gap-4 xs:items-center justify-center  flex-col xs:flex-row">
               <img
                 src={`${
                   user?.image
@@ -41,13 +41,13 @@ const Profile = () => {
             <Button
               className={`${
                 mode ? "text-white" : "text-gray-800"
-              } bg-green-500 hover:bg-blue-600 shadow-sm font-normal font-montserrat h-[35px]`}
+              } bg-green-500 hover:bg-blue-600 shadow-sm font-normal font-montserrat h-[35px] mb-4`}
               onClick={() => setIsOpen(!isOpen)}
             >
               Profilni tahrirlash
             </Button>
           </div>
-          <div className="w-full flex justify-end items-center">
+          <div className="sm:w-[50%] flex justify-end ms-auto items-center">
             <ComboboxDemo />
           </div>
           <div>

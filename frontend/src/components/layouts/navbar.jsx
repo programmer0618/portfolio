@@ -119,7 +119,7 @@ const Navbar = () => {
                 </Avatar>
               </DropdownMenuTrigger>
               <DropdownMenuContent
-                className={`absolute z-[100] top-4 left-[-110px] text-start border border-gray-600 ${
+                className={`absolute z-[100] top-4 left-[-180px] text-start border border-gray-600 ${
                   mode ? "bg-gray-300 text-gray-900" : " text-white bg-gray-900"
                 } `}
               >

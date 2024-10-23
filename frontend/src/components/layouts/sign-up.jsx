@@ -82,8 +82,8 @@ const SignUp = () => {
     <div>
       <SignLayout>
         <form
-          className={`lg:w-1/3 w-full pt-8 px-8 rounded-lg border mx-auto font-spaceGrotesk shadow-md ${
-            mode ? "bg-light" : "bg-zinc-800"
+          className={`w-full xs:w-[400px] pt-6  px-8 rounded-lg border border-gray-600 mx-auto font-spaceGrotesk shadow-md ${
+            mode ? "bg-light" : "bg-zinc-800 login-animation"
           }`}
           onSubmit={registerHandler}
         >

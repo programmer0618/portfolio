@@ -119,7 +119,7 @@ const Layout = ({ children }) => {
             } h-[calc(100vh-80px)] overflow-y-scroll`}
           >
             <div
-              className={`container mx-auto py-10 px-3 lg:px-32 w-full ${
+              className={`container mx-auto py-10 px-3 lg:px-12 w-full ${
                 mode ? "text-gray-800" : "text-white"
               }`}
             >

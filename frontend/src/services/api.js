@@ -29,7 +29,7 @@ $axios.interceptors.response.use(
     if (error.response.status === 401 && !originalRequest._isRetry) {
       originalRequest._isRetry = true;
       try {
-        const { data } = await $api.get("/refresh");
+        const { data } = await $axios.get("/refresh");
         localStorage.setItem("accessToken", data.accessToken);
         return $axios.request(originalRequest);
       } catch (error) {

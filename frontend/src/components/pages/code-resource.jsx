@@ -27,8 +27,8 @@ const CodeResource = () => {
 
   return (
     <Layout>
-      <header className="flex justify-between items-center">
-        <div className="text-[15px] font-normal text-gray-500 font-spaceGrotesk flex gap-2">
+      <header className="flex justify-between items-start xl:items-center gap-2 flex-col xl:flex-row">
+        <div className="text-[15px] font-normal text-gray-500 font-spaceGrotesk flex gap-2 flex-wrap">
           <span
             className={`cursor-pointer hover:${
               mode ? "text-black" : "text-white"
@@ -60,12 +60,12 @@ const CodeResource = () => {
             Kod manbalari
           </span>
         </div>
-        <div className="flex justify-between items-center gap-2">
-          <div className="relative">
+        <div className="flex justify-between items-center gap-2 w-full md:w-auto flex-col xs:flex-row">
+          <div className="relative flex items-center justify-start w-full">
             <input
               type="text"
               placeholder="Qidirish"
-              className={`border-none focus:outline-none h-[35px] pl-4 ${
+              className={`border-none focus:outline-none h-[35px] pl-4 w-full ${
                 mode ? "bg-gray-100" : "bg-gray-800"
               } pr-10`}
             />
@@ -74,12 +74,12 @@ const CodeResource = () => {
               cursor={"pointer"}
             />
           </div>
-          <div className="relative">
+          <div className="relative w-full">
             <ComboboxDemo />
           </div>
         </div>
       </header>
-      <div className="grid grid-cols-3 gap-4 mt-6">
+      <div className="grid lg:grid-cols-2 xl:grid-cols-3 md:grid-cols-2 xs:grid-cols-2 gap-2 mt-6">
         {data.map((item) => (
           <Card
             key={item.id}

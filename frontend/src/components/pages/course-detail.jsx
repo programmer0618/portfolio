@@ -115,16 +115,16 @@ const CourseDetail = () => {
         <span>Murakkab Backend</span>
       </div>
       <section
-        className={`flex justify-between items-center p-8 mt-[40px] ${
+        className={`flex justify-between items-center flex-col-reverse md2:flex-row lg:flex-col-reverse xl:flex-row sm:p-8 p-3 mt-[40px] ${
           mode ? "bg-gray-200" : "bg-gray-800"
         }`}
       >
-        <div className="w-[60%] flex flex-col justify-between items-start gap-2">
-          <h1 className="text-3xl font-bold font-montserrat">
+        <div className="md2:w-[60%] w-full lg:w-full flex flex-col justify-between items-start gap-2">
+          <h1 className="text-xl xs:text-3xl font-bold font-montserrat mt-4">
             Murakkab Backend
           </h1>
           <p
-            className={`text-[12px] leading-4 font-montserrat pr-4 ${
+            className={`text-[12px] leading-4 font-montserrat pr-4 text-start ${
               mode ? "text-gray-800" : "text-gray-400"
             }`}
           >
@@ -137,7 +137,7 @@ const CourseDetail = () => {
             state manegment, Tanstack react query so'rovlarni optimillashtirish
             hullas eng muhim va chuqur mavzularni o'rganasizlar.
           </p>
-          <div className="flex items-center justify-start gap-8 mt-[40px]">
+          <div className="flex xl:items-center items-start justify-start gap-4 mt-[20px] text-[14px] flex-col xl:flex-row">
             <p className="text-blue-400">
               Davomiylik:{" "}
               <span className="text-blue-400 font-bold">10 soat 52 daqiqa</span>
@@ -148,16 +148,20 @@ const CourseDetail = () => {
             </p>
           </div>
         </div>
-        <div className="w-[400px] h-[230px]">
+        <div className="md2:w-[400px] w-full  lg:w-full h-[230px]">
           <img
             src="https://www.sammi.ac/_next/image?url=https%3A%2F%2Futfs.io%2Ff%2Fd7180d95-5960-48a9-bd2c-1e3dda377329-gnzzth.png&w=1920&q=75"
             alt="Img"
-            className="w-[400px] h-[230px] rounded-sm object-cover"
+            className="w-full h-[230px] rounded-sm object-cover"
           />
         </div>
       </section>
-      <section className="mt-10 flex justify-between gap-8">
-        <div className={`${mode ? "bg-gray-200" : "bg-gray-800"} p-8 w-3/5`}>
+      <section className="mt-10 flex justify-between gap-8 flex-col lg:flex-row">
+        <div
+          className={`${
+            mode ? "bg-gray-200" : "bg-gray-800"
+          } p-8 xl:w-3/5 w-full`}
+        >
           <h1 className="text-2xl font-semibold font-spaceGrotesk">
             Kursda nimalarni o'rganasiz
           </h1>
@@ -167,13 +171,13 @@ const CourseDetail = () => {
                 key={item.id}
                 className="flex items-center justify-start gap-3 text-[14px] font-montserrat"
               >
-                <BsPatchCheck className="text-blue-500 font-bold text-[20px]" />{" "}
-                <span>{item.name}</span>
+                <BsPatchCheck className="text-blue-500 font-bold min-w-[25px] text-[20px]" />{" "}
+                <span className="line-clamp-1">{item.name}</span>
               </li>
             ))}
           </ul>
         </div>
-        <div className="w-2/5 shadow-[inset_0px_0px_15px_8px_rgba(89,190,251,1)] rounded-sm flex flex-col p-8 h-[250px]">
+        <div className="lg:w-2/5 shadow-[inset_0px_0px_15px_8px_rgba(89,190,251,1)] rounded-sm flex flex-col p-8 h-[250px]">
           <h2 className="text-[25px] font-montserrat">Kurs narxi</h2>
           <h1 className="text-2xl font-bold font-spaceGrotesk">
             Bepul{" "}
@@ -216,7 +220,7 @@ const CourseDetail = () => {
         <div
           className={`${
             mode ? "bg-gray-200 text-gray-600" : "bg-gray-800"
-          } p-8 w-3/5`}
+          } p-8 lg:w-3/5 w-full`}
         >
           <div>
             <h1 className="text-3xl font-bold font-montserrat">
@@ -241,7 +245,7 @@ const CourseDetail = () => {
             <AccordionDemo />
           </div>
         </div>
-        <div className="w-2/5"></div>
+        <div className="lg:w-2/5 hidden"></div>
       </section>
       {/* Who is this course for */}
       <section className="mt-10 flex gap-8 justify-between items-center">
@@ -250,7 +254,7 @@ const CourseDetail = () => {
             mode
               ? "bg-gray-200 text-gray-700"
               : "bg-gray-800 text-gray-200 bg-gradient-to-tl from-gray-600 to-gray-800"
-          } p-8 w-3/5`}
+          } p-8 lg:w-3/5 w-full`}
         >
           <h1 className="text-2xl font-bold font-montserrat">
             Kurs kim uchun.
@@ -273,10 +277,10 @@ const CourseDetail = () => {
             ))}
           </ul>
         </div>
-        <div className="w-2/5"></div>
+        <div className="lg:w-2/5 hidden"></div>
       </section>
       <section className="mt-10 flex gap-8 justify-between items-center">
-        <div className="w-3/5">
+        <div className="lg:w-3/5 w-full">
           <div className="flex items-center font-semibold text-xl justify-between pb-6">
             <h2 className="flex items-center">
               <BsFillStarFill className="text-orange-500" />
@@ -285,7 +289,7 @@ const CourseDetail = () => {
             </h2>
             <TooltipDemo mode={mode} BiMessageDetail={BiMessageDetail} />
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 xs:grid-cols-2 xs:gap-4 gap-1">
             {reviews.map((item) => (
               <div className="border-t pt-[20px] border-gray-600 mt-8">
                 <div className="flex gap-2 items-center font-montserrat">
@@ -308,7 +312,7 @@ const CourseDetail = () => {
             ))}
           </div>
         </div>
-        <div className="w-2/5"></div>
+        <div className="lg:w-2/5 hidden"></div>
       </section>
       <section>
         <CarouselSize />
