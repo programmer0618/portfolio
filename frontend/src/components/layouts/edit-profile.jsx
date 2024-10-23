@@ -80,7 +80,7 @@ const EditProfile = ({ setIsOpen, mode }) => {
     >
       <div className="sm:w-1/2 xs:w-[80%] w-full">
         <form
-          className={`w-full z-10 ${
+          className={`w-full z-10 min-h-screen ${
             mode ? "bg-white" : "bg-darkBlue"
           } animate-right relative p-6`}
           onClick={(e) => e.stopPropagation()}
