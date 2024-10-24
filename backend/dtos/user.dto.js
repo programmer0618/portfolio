@@ -8,6 +8,7 @@ class UserDto {
   bio;
   image;
   createdAt;
+  updatedAt;
   constructor(user) {
     this.id = user._id;
     this.firstname = user.firstname;
@@ -18,6 +19,7 @@ class UserDto {
     this.bio = user.bio;
     this.image = user.image;
     this.createdAt = user.createdAt;
+    this.updatedAt = user.updatedAt;
   }
 }
 

@@ -10,6 +10,7 @@ const userSchema = new Schema(
     role: { type: String, enum: ["user", "admin"], default: "user" },
     bio: { type: String, default: "" },
     image: { type: String, default: "" },
+    enrolledCourses: [{ type: Schema.Types.ObjectId, ref: "Course" }],
   },
   { timestamps: true }
 );

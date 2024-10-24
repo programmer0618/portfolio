@@ -10,7 +10,9 @@ module.exports = class BaseError extends Error {
   static UnauthorizedError() {
     return new BaseError(401, "User is not authorized!");
   }
-
+  static AdminUnathorizedError() {
+    return new BaseError(401, "Admin is not authorized!");
+  }
   static BadRequest(message, errors = []) {
     return new BaseError(400, message, errors);
   }

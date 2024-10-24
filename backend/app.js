@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const userRoute = require("./routes/user.route");
 const errorMiddleware = require("./middlewares/error.middleware");
 const fileUpload = require("express-fileupload");
+const adminRoute = require("./routes/admin.route");
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static("static"));
 app.use(cookieParser({}));
 
 // Routes
+app.use("/api/admin", adminRoute);
 app.use("/api/auth", userRoute);
 
 // error middleware

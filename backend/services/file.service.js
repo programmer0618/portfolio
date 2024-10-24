@@ -22,6 +22,15 @@ class FileService {
       throw BaseError.BadRequest("Error saving file!");
     }
   }
+
+  delete(fileName) {
+    try {
+      const filePath = path.join(__dirname, "..", "static", fileName);
+      fs.unlinkSync(filePath);
+    } catch (error) {
+      throw BaseError.BadRequest("Error deleting file!");
+    }
+  }
 }
 
 module.exports = new FileService();
